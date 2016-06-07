@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+<h:head>
+    <title>Argentum Web</title>
+</h:head>
+
+<h:body>
+	
+	<h:form>
+		<h:panelGrid>
+			<h:outputLabel value="Média Móvel: " />
+			<p:selectOneButton value="#{argentumBean.nomeMedia}">
+				<f:selectItem itemLabel="Simples" itemValue="MediaMovelSimples"/>
+				<f:selectItem itemLabel="Ponderada" itemValue="MediaMovelPonderada"/>
+			</p:selectOneButton>
+		
+			<h:outputLabel value="Indicador Base: " />
+			<p:selectOneButton value="#{argentumBean.nomeIndicadorBase}">
+				<f:selectItem itemLabel="Abertura" itemValue="IndicadorAbertura"/>
+				<f:selectItem itemLabel="Fechamento" itemValue="IndicadorFechamento"/>
+			</p:selectOneButton>
+		
+			<p:commandButton value="Gerar gráfico" update=":grafico" action="#{argentumBean.geraGrafico}"/>
+		</h:panelGrid>
+	</h:form>
+	
+	<p:chart id="grafico" type="line" model="#{argentumBean.modeloGrafico}"></p:chart>
+
+	<p:dataTable var="negociacao" value="#{argentumBean.negociacoes}">
+		<p:column headerText="Preço">
+			<h:outputText value="#{negociacao.preco}" />
+		</p:column>
+		<p:column headerText="Quantidade">
+			<h:outputText value="#{negociacao.quantidade}" />
+		</p:column>
+		<p:column headerText="Volume">
+			<h:outputText value="#{negociacao.volume}" />
+		</p:column>
+		<p:column headerText="Data">
+			<h:outputText value="#{negociacao.data.time}">
+				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:outputText>
+		</p:column>
+	</p:dataTable>
+
+</h:body>
+</html>
