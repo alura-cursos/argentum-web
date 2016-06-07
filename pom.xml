@@ -27,14 +27,12 @@
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.2.6</version>
-			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
 			<version>2.2.6</version>
-			<scope>compile</scope>
 		</dependency>
 
 		<!-- primefaces -->
@@ -142,7 +140,7 @@
 
 	<profiles>
 		<profile>
-			<id>tomcat-embutido</id>
+			<id>tomcat-embedded-7</id>
 			<dependencies>
 
 				<!-- arquillian-tomcat -->
