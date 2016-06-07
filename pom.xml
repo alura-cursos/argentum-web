@@ -45,7 +45,7 @@
 			<version>5.3</version>
 		</dependency>
 
-		<!-- servlet -->
+		<!-- servlet api -->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -54,20 +54,14 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
 		<!-- xstream -->
 		<dependency>
-			<groupId>xstream</groupId>
+			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
 			<version>1.2.2</version>
 		</dependency>
 
-		<!-- test -->
+		<!-- unit test -->
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -148,7 +142,7 @@
 
 	<profiles>
 		<profile>
-			<id>tomcat-embedded</id>
+			<id>tomcat-embutido</id>
 			<dependencies>
 
 				<!-- arquillian-tomcat -->

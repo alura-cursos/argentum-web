@@ -12,42 +12,71 @@
 
 <h:body>
 	
-	<h:form>
-		<h:panelGrid>
-			<h:outputLabel value="Média Móvel: " />
-			<p:selectOneButton value="#{argentumBean.nomeMedia}">
-				<f:selectItem itemLabel="Simples" itemValue="MediaMovelSimples"/>
-				<f:selectItem itemLabel="Ponderada" itemValue="MediaMovelPonderada"/>
-			</p:selectOneButton>
+	<h:form prependId="false">
 		
-			<h:outputLabel value="Indicador Base: " />
-			<p:selectOneButton value="#{argentumBean.nomeIndicadorBase}">
-				<f:selectItem itemLabel="Abertura" itemValue="IndicadorAbertura"/>
-				<f:selectItem itemLabel="Fechamento" itemValue="IndicadorFechamento"/>
-			</p:selectOneButton>
-		
-			<p:commandButton value="Gerar gráfico" update=":grafico" action="#{argentumBean.geraGrafico}"/>
-		</h:panelGrid>
-	</h:form>
-	
-	<p:chart id="grafico" type="line" model="#{argentumBean.modeloGrafico}"></p:chart>
+		<p:panel>
+            <h:outputText value="Filtrar por período:"  style="margin-right:10px" />
+            <p:inputMask id="filtroDataDe"  style="width:100px;" placeholder="De" mask="99/99/9999" value="#{argentumBean.filtroDataDe}">
+            	<f:convertDateTime pattern="dd/MM/yyyy" />
+            </p:inputMask>
+            <h:outputText value=" - " />
+            <p:inputMask id="filtroDataAte" style="width:100px;" placeholder="Até" mask="99/99/9999" value="#{argentumBean.filtroDataAte}">
+            	<f:convertDateTime pattern="dd/MM/yyyy" />
+            </p:inputMask>
+            <p:commandButton icon="ui-icon-search" style="margin-left:10px" process="filtroDataDe filtroDataAte @this" update="grafico tabelaNegociacoes" action="#{argentumBean.filtra}" />
+        </p:panel>
 
-	<p:dataTable var="negociacao" value="#{argentumBean.negociacoes}">
-		<p:column headerText="Preço">
-			<h:outputText value="#{negociacao.preco}" />
-		</p:column>
-		<p:column headerText="Quantidade">
-			<h:outputText value="#{negociacao.quantidade}" />
-		</p:column>
-		<p:column headerText="Volume">
-			<h:outputText value="#{negociacao.volume}" />
-		</p:column>
-		<p:column headerText="Data">
-			<h:outputText value="#{negociacao.data.time}">
-				<f:convertDateTime pattern="dd/MM/yyyy"/>
-			</h:outputText>
-		</p:column>
-	</p:dataTable>
+		<hr />
+		
+		<p:panel>
+			<h:panelGrid>
+				<h:outputLabel value="Média Móvel" />
+				<p:selectOneButton value="#{argentumBean.nomeMedia}" >
+					<f:selectItem itemLabel="Simples" itemValue="MediaMovelSimples"/>
+					<f:selectItem itemLabel="Ponderada" itemValue="MediaMovelPonderada"/>
+					<p:ajax update=":grafico" listener = "#{argentumBean.geraGrafico}"  />
+				</p:selectOneButton>
+			
+				<h:outputLabel value="Indicador Base" />
+				<p:selectOneButton value="#{argentumBean.nomeIndicadorBase}">
+					<f:selectItem itemLabel="Abertura" itemValue="IndicadorAbertura" />
+					<f:selectItem itemLabel="Fechamento" itemValue="IndicadorFechamento" />
+					<p:ajax update=":grafico" listener ="#{argentumBean.geraGrafico}"  />
+				</p:selectOneButton>
+			</h:panelGrid>
+        </p:panel>
+
+		<hr />
+		
+		<p:chart id="grafico" type="line" model="#{argentumBean.modeloGrafico}"></p:chart>
+		
+		<hr />
+		
+		<p:dataTable var="negociacao" value="#{argentumBean.negociacoes}" id="tabelaNegociacoes">
+			<f:facet name="header">
+				Negociações	            
+	        </f:facet> 
+	
+			<p:column headerText="Preço">
+				<h:outputText value="#{negociacao.preco}">
+				 	<f:convertNumber type="currency" minFractionDigits="2" locale="pt_BR" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Quantidade">
+				<h:outputText value="#{negociacao.quantidade}" />
+			</p:column>
+			<p:column headerText="Volume">
+				<h:outputText value="#{negociacao.volume}">
+				 	<f:convertNumber type="currency" minFractionDigits="2" locale="pt_BR" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Data">
+				<h:outputText value="#{negociacao.data.time}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:outputText>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 
 </h:body>
 </html>
