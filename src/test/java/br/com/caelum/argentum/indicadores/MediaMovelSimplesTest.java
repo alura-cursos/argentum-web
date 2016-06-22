@@ -14,7 +14,7 @@ public class MediaMovelSimplesTest {
 				3);
 		Indicador mms = new MediaMovelSimples(new IndicadorFechamento());
 
-		assertEquals(2.0, mms.calcula(2, serie),      0.000001);
+		assertEquals(1.0, mms.calcula(2, serie),      0.000001);
 		assertEquals(3.0, mms.calcula(3, serie),      0.000001);
 		assertEquals(10.0 / 3, mms.calcula(4, serie), 0.000001);
 		assertEquals(11.0 / 3, mms.calcula(5, serie), 0.000001);
