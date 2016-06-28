@@ -140,7 +140,7 @@
 
 	<profiles>
 		<profile>
-			<id>tomcat-embedded-7</id>
+			<id>testes-integracao</id>
 			<dependencies>
 
 				<!-- arquillian-tomcat -->
