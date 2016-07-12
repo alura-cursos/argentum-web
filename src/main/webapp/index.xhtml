@@ -20,7 +20,7 @@
             	<f:convertDateTime pattern="dd/MM/yyyy" />
             </p:inputMask>
             <h:outputText value=" - " />
-            <p:inputMask id="filtroDataAte" style="width:100px;" placeholder="Ate" mask="99/99/9999" value="#{argentumBean.filtroDataAte}">
+            <p:inputMask id="filtroDataAte" style="width:100px;" placeholder="Até" mask="99/99/9999" value="#{argentumBean.filtroDataAte}">
             	<f:convertDateTime pattern="dd/MM/yyyy" />
             </p:inputMask>
             <p:commandButton icon="ui-icon-search" id="botaoFiltro" style="margin-left:10px" process="filtroDataDe filtroDataAte @this" update="grafico tabelaNegociacoes" action="#{argentumBean.filtra}" />
@@ -76,7 +76,7 @@
 				</h:outputText>
 			</p:column>
 		</p:dataTable>
-		<h:outputText value="filtro por quantidade 5..."></h:outputText>
+		<h:outputText value="filtro por quantidade 6..."></h:outputText>
 	</h:form>
 
 </h:body>
