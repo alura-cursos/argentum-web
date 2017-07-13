@@ -5,10 +5,12 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.caelum.argentum.modelo.Negociacao;
 
+@Ignore
 public class LeitorXMLTest {
 
     @Test
