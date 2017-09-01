@@ -134,7 +134,7 @@ public class FiltraNegociacoesIT {
 	private void iniciaPhantomJs() {
 		DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setJavascriptEnabled(true);
-		driver = new PhantomJSDriver(dc);
+		driver = new iniciaPhantomJs(dc);
 	}
 	
 }
