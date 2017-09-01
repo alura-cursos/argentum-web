@@ -57,21 +57,21 @@ public class FiltraNegociacoesIT {
 	}
 
 	@Before
-	public void iniciaNavegador() {
-		if (System.getProperty("phantomjs.binary.path") != null) {
+	//public void iniciaNavegador() {
+		//if (System.getProperty("phantomjs.binary.path") != null) {
 			
-			iniciaPhantomJs();
+		//	iniciaPhantomJs();
 			
-		} else if (System.getProperty("webdriver.chrome.driver") != null) {
+		//} else if (System.getProperty("webdriver.chrome.driver") != null) {
 			
-			iniciaChrome();
+		//	iniciaChrome();
 			
-		} else {
+		//} else {
 			
-			throw new RuntimeException("Nao eh possivel determinar o navegador para execucao dos testes.");
+		//	throw new RuntimeException("Nao eh possivel determinar o navegador para execucao dos testes.");
 			
-		}
-	}
+		//}
+	//}
 
 	@After
 	public void desligaNavegador() {
@@ -131,10 +131,6 @@ public class FiltraNegociacoesIT {
 		driver = new ChromeDriver();
 	}
 
-	private void iniciaPhantomJs() {
-		DesiredCapabilities dc = new DesiredCapabilities();
-		dc.setJavascriptEnabled(true);
-		driver = new PhantomJSDriver(dc);
-	}
+	
 	
 }
