@@ -14,7 +14,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'MAVEN_HOME') {
+                withMaven(maven : 'maven_3_6_0') {
                     sh 'mvn test'
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'MAVEN_HOME') {
+                withMaven(maven : 'maven_3_6_0') {
                     sh 'mvn deploy'
                 }
             }
