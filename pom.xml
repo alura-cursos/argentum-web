@@ -290,4 +290,18 @@
 		</profile>
 
 	</profiles>
+	
+    <repositories>
+        <repository>
+            <id>myMavenRepo.read</id>
+            <url>https://mymavenrepo.com/repo/Q7KTwL7rW6d5GLakwYA7/</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>myMavenRepo.write</id>
+            <url>https://mymavenrepo.com/repo/q5Pb91OuuthGllguIspA/</url>
+        </repository>
+    </distributionManagement>
 </project>
