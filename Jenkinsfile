@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                    sh 'cp target/argentum-web.war /home/tsu/Downloads/apache-tomcat-7.0.92/webapps'
+                    sh 'cp /home/tsu/.jenkins/workspace/argentum-web-tsu/target/argentum-web.war /home/tsu/Downloads/apache-tomcat-7.0.92/webapps'
                 }
             }
         
