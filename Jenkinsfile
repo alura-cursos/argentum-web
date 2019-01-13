@@ -26,6 +26,6 @@ pipeline {
                     sh 'cp target/argentum-web.war /home/tsu/Downloads/apache-tomcat-7.0.92/webapps'
                 }
             }
-        }
+        
     }
 }
