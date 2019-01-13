@@ -23,8 +23,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_6_0') {
-                    sh 'mvn deploy'
+                    sh 'cp target/argentum-web.war /home/tsu/Downloads/apache-tomcat-7.0.92/webapps'
                 }
             }
         }
